@@ -41,10 +41,11 @@ const Home: NextPage<HomeProps> = ({ movies }) => {
       <FavoriteButton type="button" onClick={handleFavoriteMode}>
         <Image
           src={isOnlyFavorites ? '/outline_heart.svg' : '/heart.svg'}
+          alt="Heart"
           width={24}
           height={24}
         />
-        <span>{isOnlyFavorites ? 'Exibir todos' : 'Exibir favoritos'}</span>
+        <span>{isOnlyFavorites ? 'Show all' : 'Show favorites'}</span>
       </FavoriteButton>
       <main>
         <ul>
@@ -59,9 +60,9 @@ const Home: NextPage<HomeProps> = ({ movies }) => {
               {movies.filter((movie) => favorites.includes(movie.id)).length ===
                 0 && (
                 <span className="emptyState">
-                  Você ainda não tem nenhum favorito.
+                  You dont have any favorites yet.
                   <br />
-                  Experimente adicionar um!
+                  Try adding one!
                 </span>
               )}
             </>
@@ -80,7 +81,7 @@ const Home: NextPage<HomeProps> = ({ movies }) => {
                 src="/clouds.png"
                 width={700}
                 height={149}
-                alt="Casa entre as nuvens"
+                alt="House between clouds"
                 className="clouds"
               />
             )}
@@ -90,7 +91,7 @@ const Home: NextPage<HomeProps> = ({ movies }) => {
             src="/clouds.png"
             width={700}
             height={149}
-            alt="Casa entre as nuvens"
+            alt="House between clouds"
             className="clouds"
           />
         )}

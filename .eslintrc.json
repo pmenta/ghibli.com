@@ -6,8 +6,6 @@
     "prettier"
   ],
   "rules": {
-    // I suggest you add those two rules:
-    "@typescript-eslint/no-unused-vars": "error",
-    "@typescript-eslint/no-explicit-any": "error"
+    "@next/next/no-document-import-in-page": "off"
   }
 }

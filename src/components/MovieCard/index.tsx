@@ -43,7 +43,7 @@ export function MovieCard({ movie }: MovieCardProps) {
               src={isFavorite() ? '/heart.svg' : '/outline_heart.svg'}
               width={25}
               height={25}
-              alt="Coração"
+              alt="Heart"
             />
           </button>
         </div>
