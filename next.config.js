@@ -16,6 +16,10 @@ const nextConfig = {
   images: {
     domains: ['image.tmdb.org', 'www.themoviedb.org'],
   },
+  i18n: {
+    locales: ['en'],
+    defaultLocale: 'en',
+  },
 }
 
 module.exports = nextConfig
