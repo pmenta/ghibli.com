@@ -46,18 +46,20 @@ const Movie: NextPage<MovieProps> = ({ movie }) => {
       </Head>
       <Header />
       <MovieInfo movie={movie} />
-      <div className="charactersContainer">
-        <h2>Characters</h2>
-        <ul>
-          {movie.people.map((character) => (
-            <li key={character.id}>
-              <h3>{character.name}</h3>
-              <span>{'Age: ' + character.age}</span>
-              <span>{'Gender: ' + character.gender}</span>
-            </li>
-          ))}
-        </ul>
-      </div>
+      {movie.people.length > 0 && (
+        <div className="charactersContainer">
+          <h2>Characters</h2>
+          <ul>
+            {movie.people.map((character) => (
+              <li key={character.id}>
+                <h3>{character.name}</h3>
+                <span>{'Age: ' + character.age}</span>
+                <span>{'Gender: ' + character.gender}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
     </MovieContainer>
   )
 }

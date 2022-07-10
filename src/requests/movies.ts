@@ -14,15 +14,24 @@ export async function getMovieByID(id: string) {
   try {
     const { data } = await api.get(`/films/${id}`)
 
-    const people = await Promise.all(
-      data.people.map(async (character: string) => {
-        const { data } = await api.get(character)
+    console.log(data.people)
 
-        return data
-      })
-    )
+    const havePeopleRoute =
+      data.people[0] !== 'https://ghibliapi.herokuapp.com/people/'
 
-    return { ...data, people }
+    if (havePeopleRoute) {
+      const people = await Promise.all(
+        data.people.map(async (character: string) => {
+          const { data } = await api.get(character)
+
+          return data
+        })
+      )
+
+      return { ...data, people }
+    }
+
+    return { ...data, people: [] }
   } catch (err) {
     throw err
   }
