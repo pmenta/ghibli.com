@@ -5,6 +5,9 @@ const nextConfig = {
   compiler: {
     styledComponents: true,
   },
+  styledComponents: {
+    ssr: true,
+  },
   experimental: {
     images: {
       allowFutureImage: true,

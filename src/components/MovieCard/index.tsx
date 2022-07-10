@@ -1,4 +1,5 @@
 import Image from 'next/future/image'
+import Link from 'next/link'
 
 import { useFavoritesContext } from 'src/context/favoritesContext'
 
@@ -35,9 +36,11 @@ export function MovieCard({ movie }: MovieCardProps) {
       />
       <section>
         <div className="titleContainer">
-          <a href={`/movies/${movie.id}`}>
-            <h1>{movie.title}</h1>
-          </a>
+          <Link href={`/movies/${movie.id}`}>
+            <a>
+              <h1>{movie.title}</h1>
+            </a>
+          </Link>
           <button type="button" onClick={() => handleFavorite(movie.id)}>
             <Image
               src={isFavorite() ? '/heart.svg' : '/outline_heart.svg'}

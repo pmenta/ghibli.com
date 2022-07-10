@@ -15,7 +15,7 @@ export const theme = {
     cardBackground: '#1A1B1E',
     title: '#F6F6F6',
     subtitle: '#F4F3F4',
-    body: '#646671',
-    highlight: '#7D60F3',
+    body: '#A2A6B7',
+    highlight: '#A792FF',
   },
 }
