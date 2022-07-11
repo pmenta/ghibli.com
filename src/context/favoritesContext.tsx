@@ -7,6 +7,7 @@ interface IFavoritesContext {
 
 const contextDefaultValues: IFavoritesContext = {
   favorites: [],
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
   handleFavorite: () => {},
 }
 

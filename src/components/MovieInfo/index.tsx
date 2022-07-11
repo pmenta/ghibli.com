@@ -4,13 +4,6 @@ import { useFavoritesContext } from 'src/context/favoritesContext'
 
 import { MovieCardContainer } from './styles'
 
-interface ICharacter {
-  id: string
-  name: string
-  gender: string
-  age: string
-}
-
 interface IMovie {
   id: string
   title: string
@@ -22,7 +15,6 @@ interface IMovie {
   release_date: string
   running_time: string
   rt_score: string
-  people: ICharacter[]
 }
 
 interface MovieInfoProps {
@@ -48,7 +40,11 @@ export function MovieInfo({ movie }: MovieInfoProps) {
       <section>
         <div className="titleContainer">
           <h1>{movie.title}</h1>
-          <button type="button" onClick={() => handleFavorite(movie.id)}>
+          <button
+            type="button"
+            onClick={() => handleFavorite(movie.id)}
+            data-testid="favoriteButton"
+          >
             <Image
               src={isFavorite() ? '/heart.svg' : '/outline_heart.svg'}
               width={25}

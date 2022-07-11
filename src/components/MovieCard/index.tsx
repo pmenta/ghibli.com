@@ -41,7 +41,11 @@ export function MovieCard({ movie }: MovieCardProps) {
               <h1>{movie.title}</h1>
             </a>
           </Link>
-          <button type="button" onClick={() => handleFavorite(movie.id)}>
+          <button
+            type="button"
+            data-testid="favoriteButton"
+            onClick={() => handleFavorite(movie.id)}
+          >
             <Image
               src={isFavorite() ? '/heart.svg' : '/outline_heart.svg'}
               width={25}

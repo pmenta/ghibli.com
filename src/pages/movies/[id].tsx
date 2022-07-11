@@ -6,8 +6,9 @@ import { getMovieByID, getAllMovies } from 'src/requests/movies'
 import type { NextPage, GetStaticProps, GetStaticPaths } from 'next'
 import type { ParsedUrlQuery } from 'querystring'
 
-import { MovieContainer } from './styles'
 import { MovieInfo } from 'src/components/MovieInfo'
+import { Container } from 'src/components/Container'
+import { Characters } from 'src/components/Characters'
 
 interface IParams extends ParsedUrlQuery {
   id: string
@@ -40,27 +41,14 @@ interface MovieProps {
 
 const Movie: NextPage<MovieProps> = ({ movie }) => {
   return (
-    <MovieContainer>
+    <Container>
       <Head>
         <title>Ghibli.com | {movie.title}</title>
       </Head>
       <Header />
       <MovieInfo movie={movie} />
-      {movie.people.length > 0 && (
-        <div className="charactersContainer">
-          <h2>Characters</h2>
-          <ul>
-            {movie.people.map((character) => (
-              <li key={character.id}>
-                <h3>{character.name}</h3>
-                <span>{'Age: ' + character.age}</span>
-                <span>{'Gender: ' + character.gender}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
-    </MovieContainer>
+      <Characters characters={movie.people} />
+    </Container>
   )
 }
 
@@ -73,7 +61,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
         id: movie.id,
       },
     })),
-    fallback: 'blocking',
+    fallback: false,
   }
 }
 

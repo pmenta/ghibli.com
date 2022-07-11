@@ -14,8 +14,6 @@ export async function getMovieByID(id: string) {
   try {
     const { data } = await api.get(`/films/${id}`)
 
-    console.log(data.people)
-
     const havePeopleRoute =
       data.people[0] !== 'https://ghibliapi.herokuapp.com/people/'
 
